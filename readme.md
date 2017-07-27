@@ -20,4 +20,7 @@ Front end reference taken from :
 http://jasonwatmore.com/post/2015/03/10/angularjs-user-registration-and-login-example-tutorial
 For user authentication and project structure.
 
+Back end referenece taken from :
+https://spring.io/guides/gs/rest-service/
+https://spring.io/guides/gs/accessing-data-mongodb/
 
