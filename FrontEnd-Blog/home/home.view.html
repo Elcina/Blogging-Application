@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav blogHeader">
+        <li><a href="#!/create" ng-show="vm.isLoggedIn()" ng-click="vm.createNew()">Create New Post</a></li>
+        <li><a href="#!/login" ng-hide="vm.isLoggedIn()">Log In</a></li>
+        <li><a href="#!/" ng-click="vm.logout()" ng-show="vm.isLoggedIn()">Logout</a></li>
+    </ul>
+</nav>
+<div ng-hide="vm.create == true">
+    <h4>All Blog Posts:</h4>
+    <ul class="post-grid">
+        <li ng-repeat="post in vm.allPosts" class="col-s-4"  >
+            <h3>{{post.title}}</h3>
+            <p>{{post.blogDescription}}</p>{{}}
+            <p>Comments : </p>
+            <ul class="list-group">
+                <li class="list-group-item comment" ng-repeat="comment in post.comments">{{comment.comment}}&nbsp;&nbsp;by {{comment.commenter}}</li>
+            </ul>
+            <p>Blog Post By : {{post.createdBy}}</p>
+            <form name="commentForm" ng-show="vm.isLoggedIn()" ng-submit="vm.addComment(post,vm.comment,$index)" novalidate>
+                <h4>Add Comment</h4>
+                <textarea ng-model="vm.comment" cols="96" rows="2" required></textarea>
+                </br>
+                <input type="submit" value="Submit" />
+            </form>
+        </li>
+    </ul>
+</div>
+<div ng-show="vm.create == true">
+    <h4>Add new Blog Post:</h4>
+</div>
+<p>&nbsp;</p>

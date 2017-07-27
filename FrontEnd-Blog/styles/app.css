@@ -1,0 +1,36 @@
+a {
+    cursor: pointer;
+}
+.moveLeft {
+    margin-left: 95%;
+}
+ul.post-grid {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: #f3f3f3;
+}
+ul.post-grid li {
+    padding: 20px;
+    transition: background linear 0.5s;
+    border-bottom: 1px solid #dee7ec;
+}
+.nav.blogHeader{
+    font-size: 16px;
+}
+ul.post-grid li:hover {
+    background: #b2babf;
+}
+ul.post-grid li:hover h3 {
+    color: #3f606e;
+}
+h2,h3 {
+    color: #79B9D2;
+}
+.list-group-item.comment {
+    padding: 3px 3px
+}
+.blogContainer {
+    background-color: rgba(0, 93, 128, 0.1);
+    padding: 30px;
+}
