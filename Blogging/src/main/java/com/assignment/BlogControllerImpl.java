@@ -17,19 +17,19 @@ public class BlogControllerImpl  {
     @Autowired
     BlogSpaceRespository blogSpaceRespository;
 
-    public BlogSpaceResponse createBlogSpace(String name, String password){
+    public BlogSpaceResponse createBlogSpace(Account reqAccount){
       //  Account
-        Account account =  accountRepository.findOne(name);
+        Account account =  accountRepository.findOne(reqAccount.getName());
         BlogSpaceResponse response = new BlogSpaceResponse();
         if(account ==null){
-            account = new Account(name,password);
+            account = new Account(reqAccount.getName(),reqAccount.getPassword());
             accountRepository.save(account);
-            BlogSpace blogSpace = new BlogSpace(name,new LinkedList<>());
+            BlogSpace blogSpace = new BlogSpace(reqAccount.getName(),new LinkedList<>());
             blogSpaceRespository.save(blogSpace);
             response.setStatus("SUCCESS");
             response.setMessage("Account account created!");
         }else{
-            if(account.getPassword().equals(password)){
+            if(account.getPassword().equals(reqAccount.getPassword())){
                 response.setStatus("SUCCESS");
                 response.setMessage("Account with this name and password already registered!");
             }else{

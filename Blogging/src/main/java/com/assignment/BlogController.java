@@ -11,9 +11,9 @@ public class BlogController {
     @Autowired
     BlogControllerImpl blogController;
     @CrossOrigin(origins = "*")
-    @RequestMapping("/blogspace/create")
-    public BlogSpaceResponse createBlogSpace(@RequestParam(value="name") String name, @RequestParam(value="password") String password){
-        return blogController.createBlogSpace(name,password);
+    @RequestMapping(value="/blogspace/create", method = RequestMethod.POST)
+    public BlogSpaceResponse createBlogSpace(@RequestBody Account account){
+        return blogController.createBlogSpace(account);
     }
 
     @CrossOrigin(origins = "*")

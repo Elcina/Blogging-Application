@@ -14,13 +14,13 @@
 
         return service;
 
-        function GetByUsername(username,password) {
-            return $http.get('http://localhost:8090/blogspace/create?name='+username+'&password='+password)
+         function GetByUsername(username,password) {
+            return $http.post('http://192.168.2.4:8090/blogspace/create',{"name":username,"password":password})
                 .then(handleSuccess, handleError('Error Getting user'));
         }
 
         function Create(user) {
-            return $http.get('http://localhost:8090/blogspace/create?name='+user.username+'&password='+user.password)
+            return $http.post('http://192.168.2.4:8090/blogspace/create',{"name":user.username,"password":user.password})
                 .then(handleSuccess, handleError('Error creating user'));
         }
 
