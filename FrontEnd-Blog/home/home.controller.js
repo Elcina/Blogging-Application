@@ -56,7 +56,7 @@
 
         function logout() {
             AuthenticationService.ClearCredentials();
-            $rootScope.globals.currentUser= {};
+            $rootScope.globals = {};
         }
 
         function isLoggedIn() {
